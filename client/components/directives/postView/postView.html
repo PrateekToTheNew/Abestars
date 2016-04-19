@@ -13,10 +13,10 @@
             <li ng-show="post.title.length>20">...<a ui-sref="enlargePost({postid:post._id})">read more</a></li>
           </ul>
           <ul class="list-inline">
-            <li>
-              <pre><h5 ng-bind-html="post.text|subString :0 :20"></h5></pre>
-            </li>
-            <li ng-show="post.text.length>20">...<a ui-sref="enlargePost({postid:post._id})">read more</a></li>
+            <!--<li>-->
+              <!--<pre><h5 ng-bind-html="post.text|subString :0 :0"></h5></pre>-->
+            <!--</li>-->
+            <li ng-show="post.text.length>=0"><a ui-sref="enlarePost({postid:post._id})">See full post</a></li>
           </ul>
           <h5 style="color: gray">Uploaded:&nbsp;<span am-time-ago="post.dateCreated"></span><i
             class="fa fa-thumbs-o-down" ng-class="post.hasDisLiked?'yes':'no'"
