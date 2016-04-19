@@ -11,7 +11,7 @@ exports.setup = function (User, config) {
     function (accessToken, refreshToken, profile, done) {
 
       //console.log(profile);
-      if (profile._json.domain == 'tothenew.com') {
+      if (profile._json.domain == 'abes.ac.in') {
         User.findOne({
           'google.id': profile.id
         }, function (err, user) {

@@ -98,7 +98,7 @@ angular.module('buzzAppApp')
     $scope.$on('Form Submitted: Post',function(event,data){
       data.likeCount=0;
       data.dislikeCount=0;
-      if(filter.category=='Lost And Found'&&data.category=='Lost And Found')
+      if(filter.category=='Placement'&&data.category=='Placement')
         $scope.posts.unshift(data);
       else if(Object.keys(filter).length===2 && data.category=='Activity')
       {

@@ -11,9 +11,9 @@ angular.module('buzzAppApp')
       'PostedByemail': $scope.user.email,
       'category': 'Activity'
     };
-    $scope.postDropdownItems=['Activity','Lost And Found'];
+    $scope.postDropdownItems=['Activity','Placement'];
     $scope.lostNfoundFilterBy={
-      category:'Lost And Found'
+      category:'Placement'
     };
     $scope.timelineFilterBy={
       'createdBy.id':$scope.user._id
