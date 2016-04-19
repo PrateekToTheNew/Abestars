@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <link href="../client/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+  <title></title>
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    .leftImgDiv {
+      background: rgba(0, 0, 0, 0.8);
+      height: 100%;
+      width: 40%;
+      display: inline-block;
+      position: fixed;
+    }
+
+    .leftImgDiv > img {
+      max-height: 80%;
+      max-width: 100%;
+    }
+
+    .rightDiv {
+      padding: 15px;
+      float: right;
+      width: 60%;
+      overflow-y: auto;
+      height: 100%;
+      margin-bottom: 0px;
+    }
+
+    .rightDiv .profilePic {
+      height: 80px;
+      width: 80px;
+      background: #cccccc;
+      border-radius: 50%;
+    }
+
+    .rightDiv .header {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .rightDiv .line {
+      display: inline-block;
+    }
+
+    .rightDiv .category {
+      float: right;
+      margin-top: 20px;
+      color: #808080;
+    }
+
+    .rightDiv .likeDislike {
+      margin-left: 105px;
+      display: block;
+      margin-top: -15px;
+    }
+    .rightDiv .text{
+      padding: 15px;
+      padding-top: 50px;
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+<div style="width: 100%;height: 100%;">
+  <div class="leftImgDiv">
+    <img src="../images/Prateek%20TTND/Prateek%20TTND_1456919692904.jpg"/>
+  </div>
+  <div class="rightDiv well">
+    <h1>This is some Title</h1>
+    <hr>
+    <div>
+      <img class="profilePic line" src="../images/Prateek%20TTND/Prateek%20TTND_1456919692904.jpg"/>
+      <div class="header line">
+        <h4><span>Prateek TTND</span> buzzed <span>4 hours ago</span></h4>
+      </div>
+      <div class="category hidden-sm hidden-xs">
+        <h4>Category : &nbsp;<span>Activity</span></h4>
+      </div>
+      <div class="likeDislike">
+        <span class="glyphicon glyphicon-thumbs-up">&nbsp;2 <span class="hidden-sm hidden-xs">Likes</span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-thumbs-down">&nbsp;4 <span class="hidden-sm hidden-xs">Dislikes</span></span>
+      </div>
+    </div>
+    <div class="text">
+      <h4>The previous code come from the documentation (README) of the module, and use the default mongoose connection and some other default configuration (for example validation messages). You can see it in the Github repo. Other supported features that you can use are:
+
+        Custom Connection
+        Custom Validation Messages</h4>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div style="width: 100%;height: 100%;">
+  <div class="leftImgDiv" ng-show="enlargePost.postImage.path">
+    <img src="{{enlargePost.postImage.path}}"/>
+  </div>
+  <div class="well" ng-class="{'rightDiv':enlargePost.postImage.path,'moveLeft':!enlargePost.postImage.path}">
+    <h1 style="border: 0px;">{{enlargePost.title}}</h1>
+    <hr>
+    <div>
+      <img class="profilePic line" src="{{enlargePost.createdBy.dp}}"/>
+
+      <div class="header line">
+        <h4><span>{{enlargePost.createdBy.name}}</span> Buzzed <span am-time-ago="enlargePost.dateCreated">4 hours ago</span>
+        </h4>
+      </div>
+      <div class="likeDislike">
+        <span class="glyphicon glyphicon-thumbs-up">&nbsp;{{enlargePost.likes.length}} <span class="hidden-sm hidden-xs">Likes</span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-thumbs-down">&nbsp;{{enlargePost.dislikes.length}} <span class="hidden-sm hidden-xs">Dislikes</span></span>
+      </div>
+      <div class="category hidden-sm hidden-xs">
+        <h4>Category : &nbsp;<span>{{enlargePost.category}}</span></h4>
+      </div>
+      <div class="text">
+        <h4>{{enlargePost.text}}</h4>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div ng-controller="ComplaintsViewCtrl">
+  <h4 ng-if="user.role=='user'" style="text-align: center;"><a ng-click="open()">Register New Complaint</a></h4>
+  <ul class="list-inline nav nav-justified" ng-if="user.role=='admin'">
+    <li>
+      <a ng-click="open()">Register New Complaint</a>
+    </li >
+    <li ng-if="user.role=='admin'"><a ng-click="getAdminComplaints()">Show My Complaints</a></li>
+    <li ng-if="user.role=='admin'"><a ng-click="getComplaints();">Show All Complaints</a></li>
+  </ul>
+
+  <div class="showComplaints" ng-if="user.role=='user'">
+  <div class="complaintHeader" ng-show="complaints.length>0">
+    <span class="glyphicon glyphicon-edit"></span><span>&nbsp;&nbsp;Your Complaints</span>
+  </div>
+  <table class="table table-responsive table-hover" ng-show="complaints.length>0">
+    <thead>
+    <tr>
+      <th>Issue ID</th>
+      <th>Department</th>
+      <th>Title</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+      <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="complaint in complaints">
+      <td>{{complaint._id}}</td>
+      <td>{{complaint.category}}</td>
+      <td>
+        <pre ng-bind-html="complaint.title|subString :0 :20"></pre>
+      </td>
+      <td>{{complaint.assignedTo.personName}}</td>
+      <td uib-dropdown>
+        <button uib-dropdown-toggle class='btn btn-sm' ng-class="complaint.status"
+                ng-disabled="complaint.status=='Ok'||complaint.status=='Cancelled'">{{complaint.status}}
+        </button>
+        <ul uib-dropdown-menu aria-labelledby="simple-dropdown" class="complaintStatus">
+          <li><a href="javascript:void(0);" ng-click="changeStatus(complaint._id,'Cancelled',$index,'user');"
+                 class="btn btn-xs btn-default"
+                 ng-show="(complaint.status==='Pending'||complaint.status==='In Progress')">Cancel
+            &nbsp;<span class="glyphicon glyphicon-remove"></span></a></li>
+          <li><a href="javascript:void(0);" ng-click="changeStatus(complaint._id,'Ok',$index,'user');"
+                 class="btn btn-xs btn-default"
+                 ng-show="(complaint.status==='Resolved')">Ok
+            &nbsp;<span class="glyphicon glyphicon-ok-circle"></span></a></li>
+        </ul>
+      </td>
+      <td><span class="glyphicon glyphicon-eye-open" ui-sref="enlargeComplaint({complaintId:complaint._id})"></span> </td>
+    </tr>
+    </tbody>
+  </table>
+  <h1 style="text-align: center;display: block" ng-show="!complaints.length">No Complaints</h1>
+</div>
+
+
+<div class="showComplaints" ng-if="user.role=='admin'">
+  <div class="complaintHeader" ng-show="complaints.length>0">
+    <span class="glyphicon glyphicon-edit"></span><span>&nbsp;&nbsp;All Complaints</span>
+  </div>
+  <table class="table table-responsive table-hover" ng-show="complaints.length>0">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Title</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+      <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="complaint in complaints">
+      <td>{{complaint.postedBy.name}}</td>
+      <td>{{complaint.category}}</td>
+      <td>
+        <pre ng-bind-html="complaint.title|subString :0 :20"></pre>
+      </td>
+
+      <td uib-dropdown ng-if="complaint.assignedTo.personName==='Not Assigned'">
+        <button class="btn btn-primary" uib-dropdown-toggle>{{complaint.assignedTo.personName}}</button>
+        <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+          <li ng-repeat="admin in adminUsers" style="padding-left: 10px;">
+            <a href="javascript:void(0)" ng-click="assignTo(complaint._id,admin,$parent.$index)">{{admin.name}}</a>
+          </li>
+        </ul>
+      </td>
+      <td uib-dropdown ng-if="complaint.assignedTo.personName!=='Not Assigned'">{{complaint.assignedTo.personName}}</td>
+
+
+      <td uib-dropdown>
+        <button uib-dropdown-toggle class='btn btn-sm'
+                ng-class="complaint.status"
+                ng-disabled="complaint.status!=='In Progress'">
+          {{complaint.status}}
+        </button>
+        <ul uib-dropdown-menu aria-labelledby="simple-dropdown" class="complaintStatus">
+          <li>
+            <a href="javascript:void(0);" ng-click="changeStatus(complaint._id,'Resolved',$index,'admin')"
+               class="btn btn-xs btn-default">Resolved
+              &nbsp;<span class="glyphicon glyphicon-remove"></span></a>
+          </li>
+        </ul>
+      </td>
+      <td><span class="glyphicon glyphicon-eye-open" ui-sref="enlargeComplaint({complaintId:complaint._id})"></span> </td>
+    </tr>
+    </tbody>
+  </table>
+  <h1 style="text-align: center;display: block" ng-show="!complaints.length">No Complaints</h1>
+</div>
+
+</div>

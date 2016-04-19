@@ -1,0 +1,26 @@
+<div ng-controller="ProfileCtrl">
+  <div class="mycontainer">
+    <div class="mynavbar">
+      <ul class="mynavleft">
+        <li class="clicks" ui-sref="profile.posts.tab1"><a id="inbox">Posts &nbsp;</a></li>
+        <li class="clicks" ui-sref=".complaints"><a>Complaints</a></li>
+      </ul>
+      <div class="mynavright">
+        <ul>
+          <li class="hidden-xs">
+            <p id="name">{{user.name}}</p><br>
+
+            <p id="email">{{user.email}}</p>
+          </li>
+          <li uib-dropdown>
+            <img id="profilepic" ng-src="{{user.google.image.url}}" uib-dropdown-toggle/>
+            <ul uib-dropdown-menu style="left: -100px;max-width: 100px;">
+              <li><a href="javascript:void(0);" ng-click="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div ui-view=""></div>
+  </div>
+</div>

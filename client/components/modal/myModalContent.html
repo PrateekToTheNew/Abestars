@@ -1,0 +1,20 @@
+<div id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">{{modalName}}</h3>
+  </div>
+  <div class="modal-body" ng-switch="modalName">
+    <!--<h2>===={{name}}</h2>-->
+    <post-sender ng-switch-when="Buzz It" input-box-title="Create Buzz" title-placeholder="Post Title" text-placeholder="Share your thoughts..."
+    model-obj="postDetails"
+    file-validity="fileValidity" dropdown-items="postDropdownItems" submit-text="Buzz"></post-sender>
+
+    <post-sender ng-switch-when="Complaint Registration Form" input-box-title="Register Complaint" title-placeholder="Complaint Title" text-placeholder="Your Concern"
+                 model-obj="complaint"
+                 file-validity="complaintFileValidity" dropdown-items="complaintDropdownItems"
+                 registering-service="'ComplaintService'" submit-text="Submit"></post-sender>
+  </div>
+  <!--<div class="modal-footer">-->
+    <!--<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>-->
+    <!--<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>-->
+  <!--</div>-->
+</div>

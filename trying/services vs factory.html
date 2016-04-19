@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../client/bower_components/angular/angular.min.js">
+  </script>
+  <script>
+    angular.module('app', [])
+      .service('myService', function () {
+        this.func1 = function () {
+          return 'Prateek'
+        }
+        return 'fjkdkajnf';
+      })
+      .factory('myFactory', function () {
+//            return function(){
+        return 'Prateek'
+
+//          }
+      })
+      .controller('appCtrl', function ($scope, $q, myService, myFactory) {
+        var val1 = myService;
+        var val2 = myFactory;
+        console.log(">>", val1);
+        console.log("<<", val2);
+        var a = function (ans) {
+          console.log("A called");
+          var defer = $q.defer();
+          setTimeout(function(){
+            if (ans < 0) {
+              defer.resolve('Ans is negative');
+            }
+            else {
+              defer.reject('Answer is positive');
+            }
+          },2000);
+          return defer.promise;
+        };
+        var promise = a(10);
+        promise
+          .then(function (val) {
+            console.log(val);
+          })
+          .catch(function (val) {
+            console.log(val);
+          });
+      });
+    //        .directive('myDirective',function(){
+    //          return{
+    //            restrict:'E',
+    //            link:function(scope,element,attrs){
+    //              attrs.$observe('attribute',function(){
+    //                console.log()
+    //              });
+    //            }
+    //          }
+    //        });
+  </script>
+</head>
+<body ng-controller="appCtrl">
+
+</body>
+</html>

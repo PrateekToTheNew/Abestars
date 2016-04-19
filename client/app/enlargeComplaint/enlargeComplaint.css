@@ -1,0 +1,78 @@
+.leftImgDiv {
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 40%;
+  display: inline-block;
+  position: fixed;
+}
+
+.leftImgDiv > img {
+  max-height: 80%;
+  max-width: 100%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.rightDiv {
+  padding: 15px;
+  float: right;
+  width: 60%;
+  overflow-y: auto;
+  height: 100%;
+  margin-bottom: 0px;
+}
+.moveLeft{
+  padding: 15px;
+  float: left;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0px;
+
+}
+
+.rightDiv .profilePic, .moveLeft .profilePic{
+  height: 80px;
+  width: 80px;
+  background: #cccccc;
+  border-radius: 50%;
+}
+
+.rightDiv .header,.moveLeft .header {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.rightDiv .line, .moveLeft .line {
+  display: inline-block;
+}
+
+.rightDiv .category, .moveLeft .category {
+  float: right;
+  margin-top: 20px;
+  color: #808080;
+}
+
+.rightDiv .text, .moveLeft .text{
+  padding: 15px;
+  padding-top: 50px;
+  text-align: justify;
+  padding-bottom: 50px;
+}
+.complaintInfo{
+  margin-top: 40px;
+}
+.complaintInfo table{
+  margin-top: 20px;
+}
+.complaintInfo td{
+  font-size: 16px;
+  text-align: center;
+}
+.complaintInfo tr{
+  border: 0px;
+}
+

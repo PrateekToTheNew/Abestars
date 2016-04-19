@@ -1,0 +1,37 @@
+<div class="posts" id="postsDisplay">
+  <div ng-if="posts.length">
+    <ul class="dynamic-grid" angular-grid="posts" ag-grid-width="350" ag-gutter-size="20" ag-id="gallery">
+      <li data-ng-repeat="post in posts" class="grid">
+        <img ng-if="post.postImage.present" class="grid-img" ng-src="{{post.postImage.path}}"
+             data-actual-width="{{post.actualWidth}}" data-actual-height="{{post.actualHeight}}"/>
+
+        <div class="postFooter">
+          <ul class="list-inline">
+            <li>
+              <pre><h4 ng-bind-html="post.title|subString:0:20" style="font-weight:500;"></h4></pre>
+            </li>
+            <li ng-show="post.title.length>20">...<a ui-sref="enlargePost({postid:post._id})">read more</a></li>
+          </ul>
+          <ul class="list-inline">
+            <li>
+              <pre><h5 ng-bind-html="post.text|subString :0 :20"></h5></pre>
+            </li>
+            <li ng-show="post.text.length>20">...<a ui-sref="enlargePost({postid:post._id})">read more</a></li>
+          </ul>
+          <h5 style="color: gray">Uploaded:&nbsp;<span am-time-ago="post.dateCreated"></span><i
+            class="fa fa-thumbs-o-down" ng-class="post.hasDisLiked?'yes':'no'"
+            ng-click="post.hasDisLiked||dislike(post._id,$index)">&nbsp;{{post.dislikeCount}}&nbsp;&nbsp;&nbsp;</i><i
+            ng-class="post.hasLiked?'yes':'no'" class="fa fa-thumbs-o-up"
+            ng-click="post.hasLiked||like(post._id,$index)">&nbsp;{{post.likeCount}}</i></h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="loading" ng-show="loading">
+    <span class="helper"></span>
+    <img src="assets/images/loading.gif"/></span>
+  </div>
+  <div ng-show="allLoaded"><h4 style="text-align: center">All Posts have been loaded</h4></div>
+</div>
+
+

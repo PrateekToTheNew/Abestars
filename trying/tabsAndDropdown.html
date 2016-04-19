@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="tryingApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style type="text/css">
+      form.tab-form-demo .tab-pane {
+        margin: 20px 20px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
+    <script src="ui-bootstrap-tpls-1.2.1.js"></script>
+    <script>
+
+      angular.module('tryingApp',['ui.bootstrap'])
+        .controller('TabsDemoCtrl', function ($scope, $window) {
+//        $scope.model = {
+//          name: 'Tabs'
+//        };
+      })
+        .controller('DropdownCtrl', function ($scope, $log) {
+        $scope.items = [
+          'The first choice!',
+          'And another choice for you.',
+          'but wait! A third!'
+        ];
+//
+//        $scope.status = {
+//          isopen: false
+//        };
+//
+//        $scope.toggled = function(open) {
+//          $log.log('Dropdown is now: ', open);
+//        };
+//
+//        $scope.toggleDropdown = function($event) {
+//          $event.preventDefault();
+//          $event.stopPropagation();
+//          $scope.status.isopen = !$scope.status.isopen;
+//        };
+//
+//        $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+      });
+
+    </script>
+</head>
+<body>
+  <div ng-controller="TabsDemoCtrl">
+    <uib-tabset active="activeJustified" justified="true">
+      <uib-tab index="0" heading="Tab 1">
+        <div>
+          <h1>Tab 1 is here</h1>
+        </div>
+      </uib-tab>
+      <uib-tab index="1" heading="Tab 2" active="tab.active">
+        <h1>Tab 2 is here</h1>
+      </uib-tab>
+      <uib-tab index="3" select="">
+        <uib-tab-heading>
+          <i class="glyphicon glyphicon-bell"></i> Tab 3
+        </uib-tab-heading>
+        <h1>Tab 3 is here</h1>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+
+  <div ng-controller="DropdownCtrl" style="background: lightgray;">
+    <span uib-dropdown  style="margin-left: 50px;">
+      <a href id="simple-dropdown" uib-dropdown-toggle>
+        Click me!
+      </a>
+      <ul uib-dropdown-menu aria-labelledby="simple-dropdown">
+        <li ng-repeat="choice in items">
+          <a href>{{choice}}</a>
+        </li>
+      </ul>
+    </span>
+  </div>
+
+</body>
+</html>

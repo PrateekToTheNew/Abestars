@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html ng-app="demoApp">
+
+<head>
+    <title>Angular Grid Demo</title>
+    <style>
+
+        .dynamic-grid{
+            position: relative;
+            display: none;
+        }
+
+        .dynamic-grid.angular-grid{
+            display: block;
+        }
+
+        .grid {
+            border: 1px solid #cccccc;
+            position: absolute;
+            list-style: none;
+            background: #ffffff;
+            box-sizing: border-box;
+            -moz-box-sizing : border-box;
+            -webkit-transition: all 0.6s ease-out;
+            transition: all 0.6s ease-out;
+            overflow: hidden;
+        }
+        .grid-img {
+            width: 100%;
+            vertical-align: middle;
+            -webkit-transition: opacity 0.6s ease-out;
+            transition: opacity 0.6s ease-out;
+            background-color: #fff;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .grid-img.img-loaded{
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="" data-ng-controller="demo">
+    <h1>fdesdf</h1>
+    <ul class="dynamic-grid" angular-grid="pics" ag-grid-width="300" ag-gutter-size="15" ag-angular-grid-id="gallery" ag-refresh-on-img-load="false" >
+        <li data-ng-repeat="pic in pics" class="grid">
+            <img src="{{pic.src}}" class="grid-img" data-actual-width = "{{pic.width}}"  data-actual-height="{{pic.height}}" />
+            <!--<p>{{pic.date_taken}}</p>-->
+            <p>dfsd</p>
+        </li>
+    </ul>
+</body>
+<script src="../js/angular.js"></script>
+<script src="../../../angulargrid.js"></script>
+<script src="./js/demo1.js"></script>
+
+
+</html>

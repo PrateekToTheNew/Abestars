@@ -1,0 +1,98 @@
+.modal-primary .modal-header,
+.modal-info .modal-header,
+.modal-success .modal-header,
+.modal-warning .modal-header,
+.modal-danger .modal-header {
+  color: #fff;
+  border-radius: 5px 5px 0 0;
+}
+.modal-primary .modal-header {
+  background: #428bca;
+}
+.modal-info .modal-header {
+  background: #5bc0de;
+}
+.modal-success .modal-header {
+  background: #5cb85c;
+}
+.modal-warning .modal-header {
+  background: #f0ad4e;
+}
+.modal-danger .modal-header {
+  background: #d9534f;
+}
+
+@media only screen and (min-width : 320px) {
+  /*.modal-dialog{*/
+    /*margin-top: 5px;*/
+  /*}*/
+  .modal-body{
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+  #inputPost #postText{
+    height:90px;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  /*.modal-dialog{*/
+    /*margin-top: 5px;*/
+  /*}*/
+  .modal-body{
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+  #inputPost #postText{
+    height:90px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  /*.modal-dialog{*/
+    /*margin-top: 5px;*/
+  /*}*/
+  .modal-body{
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+  #inputPost #postText{
+    height:90px;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  /*.modal-dialog{*/
+    /*margin-top: 5px;*/
+  /*}*/
+  .modal-body{
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+  #inputPost #postText{
+    height:90px;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .modal-body{
+    padding-top: 25px;
+    padding-bottom: 50px;
+  }
+  #inputPost #postText{
+    height:120px;
+  }
+}
+.modal{
+  overflow-y: auto;
+}
+
+
+/*.modal-dialog{*/
+  /*margin-top: 2%;*/
+/*}*/
+

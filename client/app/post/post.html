@@ -1,0 +1,28 @@
+<div class="mymenu">
+  <div class="mid">
+    <uib-tabset class="mymenu-bar" justified="true">
+      <uib-tab id="All" class="mytab" index="0" heading="Tab 1" ui-sref=".tab1">
+        <uib-tab-heading>
+          <a><span>A</span>&nbsp;All Buzz</a>
+        </uib-tab-heading>
+      </uib-tab>
+      <uib-tab id="Timeline" class="mytab" index="1" ui-sref=".tab2">
+        <uib-tab-heading>
+          <a><span>T</span>&nbsp;Timeline</a>
+        </uib-tab-heading>
+      </uib-tab>
+      <uib-tab id="LostnFound" class="mytab" index="3" ui-sref=".tab3">
+        <uib-tab-heading>
+          <a><span>L</span>&nbsp;Lost & Found</a>
+        </uib-tab-heading>
+      </uib-tab>
+      <uib-tab id="NewBuzz" class="mytab modalInput" index="4" ng-click="open()">
+        <uib-tab-heading>
+          <a><span id="newBuzzStar"></span>&nbsp;New Buzz</a>
+        </uib-tab-heading>
+      </uib-tab>
+    </uib-tabset>
+
+    <div ui-view=""></div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div style="width: 100%;height: 100%;">
+  <div class="leftImgDiv" ng-show="enlargeComplaint.complaintImage.path">
+    <img src="{{enlargeComplaint.complaintImage.path}}"/>
+  </div>
+  <div class="well" ng-class="{'rightDiv':enlargeComplaint.complaintImage.path,'moveLeft':!enlargeComplaint.complaintImage.path}">
+    <h1 style="border: 0px;">{{enlargeComplaint.title}}</h1>
+    <hr>
+    <div>
+      <img class="profilePic line" src="{{enlargeComplaint.postedBy.dp}}"/>
+      <div class="header line">
+        <h4><span>{{enlargeComplaint.postedBy.name}}</span> complained <span am-time-ago="enlargeComplaint.dateCreated">4 hours ago</span></h4>
+      </div>
+      <div class="category hidden-sm hidden-xs">
+        <h4>Category : &nbsp;<span>{{enlargeComplaint.category}}</span></h4>
+      </div>
+      <div class="complaintInfo">
+        <h3>Complaint Information-</h3>
+        <table class="table table-responsive">
+          <tr>
+            <td>Registered By:</td>
+            <td>{{enlargeComplaint.postedBy.name}}</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{enlargeComplaint.postedBy.email}}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td>{{enlargeComplaint.status}}</td>
+          </tr>
+          <tr>
+            <td>Assigned To:</td>
+            <td>{{enlargeComplaint.assignedTo.personName}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="text">
+      <h3>Concern-</h3>
+      <h4>{{enlargeComplaint.concern}}</h4>
+    </div>
+  </div>
+</div>

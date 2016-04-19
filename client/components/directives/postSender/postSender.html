@@ -1,0 +1,41 @@
+<div id="inputPost">
+  <div id="postHeader">
+    <span class="glyphicon glyphicon-edit"></span><span>&nbsp;&nbsp;{{inputBoxTitle}}</span>
+  </div>
+  <input type="text" id="postTitle" placeholder="{{titlePlaceholder}}" ng-model="modelObj.title"/>
+  <textarea id="postText" placeholder="{{textPlaceholder}}" ng-model="modelObj.text"></textarea>
+
+  <div style="border: 1px solid lightgray;border-top: 0px; " ng-show="modelObj.file&&fileValidity">
+    <div class="imgPreviewOuter">
+      <div style="position: absolute;left: 0;right: 0;">
+        <span class="glyphicon glyphicon-remove" style="float: right" ng-click="removePic()"></span>
+      </div>
+      <div id="imgPreview"></div>
+    </div>
+  </div>
+  <div style="border: 1px solid lightgray;border-top: 0px; " ng-show="!fileValidity">
+    <div class="invalidImgPreviewOuter">
+      <div style="position: absolute;left: 0;right: 0;">
+        <span class="glyphicon glyphicon-remove" style="float: right" ng-click="removePic()"></span>
+      </div>
+      <div id="invalidPreview">
+        <img src="../../assets/images/invalid_image.png"/>
+      </div>
+    </div>
+  </div>
+  <div id="postFooter">
+    <label id="selectBox">
+      <select ng-model="modelObj.category">
+        <option ng-repeat="options in dropdownItems" value="{{options}}">{{options}}</option>
+      </select>
+    </label>
+    <!--<span class="glyphicon glyphicon-chevron-down icon-hover"></span>-->
+    <label for="postPicUpload" style="margin-left: 25px;">
+      <span class="glyphicon glyphicon-upload icon-hover" aria-hidden="true"></span>
+      <input type="file" id="postPicUpload" style="display:none" image-model ng-model="modelObj.file"
+             is-valid="fileValidity" media-preview preview-container="imgPreview"/>
+    </label>
+    <a href="#" ng-show="(fileValidity&&modelObj.title)||(fileValidity&&modelObj.text)" ng-click="sendDetails();"><span class="btn-sm btn-primary" id="sendPost">{{submitText}}</span></a>
+    <span style="float: right;color:orangered;font-size: 14px;padding-top: 2px;" ng-show="!fileValidity">Only JPG/PNG files with size <= 4MB can be uploaded</span>
+  </div>
+</div>
